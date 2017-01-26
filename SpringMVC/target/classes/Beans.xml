@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<context:annotation-config/>
+
+<bean id = "Student" class = "com.example.Student" scope="prototype">
+
+	<constructor-arg name = "name" value ="Panneer Selvam"/>
+	<constructor-arg name = "age" value ="20"/>
+	<constructor-arg ref = "Training" />
+	
+	<property name = "address" ref="Address"/>
+	<property name="city" value="Bangalore"/>
+	<property name = "subjects">
+	<list>
+		<value>Mathematics</value>
+		<value>Physics</value>
+	</list>
+	</property>
+</bean>
+
+<bean id = "Address" class = "com.example.Address">
+	<constructor-arg index = "0" value ="Java"/>
+	<constructor-arg index = "1" value ="Panneer"/>
+</bean>	
+<bean id = "Training" class = "com.example.Training">
+	<constructor-arg index = "0" value ="Bangalore"/>
+	<constructor-arg index = "1" value ="India"/>
+</bean>
+    <bean class="com.example.PostProcessor"/>
+
+</beans>
